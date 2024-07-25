@@ -6,14 +6,14 @@
         <div class="form__control">
           <label for="email">Email</label>
           <!--Use the name `email` for the form control.-->
-          <input type="text" id="email" placeholder="Input text"/>
-          <span id="emailErrorMessage" class="text-danger">Email is required.</span>
+          <input type="text" id="email" placeholder="Input text" ngModel name="email" required email #emailModel="ngModel"/>
+          <span id="emailErrorMessage" class="text-danger" *ngIf="!emailModel.valid">Email is required.</span>
         </div>
         <div class="form__control">
           <label for="password">Password</label>
           <!--Use the name `password` for the form control.-->
-          <input type="password" id="password" placeholder="Input text"/>
-          <span id="passwordErrorMessage" class="text-danger">Password is required.</span>
+          <input type="password" id="password" placeholder="Input text" ngModel name="password" required #passwordModel="ngModel"/>
+          <span id="passwordErrorMessage" class="text-danger"  *ngIf="!passwordModel.valid">Password is required.</span>
         </div>
       </div>
       <div>
