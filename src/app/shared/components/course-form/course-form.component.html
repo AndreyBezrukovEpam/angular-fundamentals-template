@@ -1,20 +1,20 @@
 <!-- Replace ::text:: with your code -->
 <h2>Create / Edit Course</h2>
-<form>
-  <div class="app-plate"  [formGroup]="courseForm">
+<form [formGroup]="courseForm">
+  <div class="app-plate">
     <div class="course">
       <h3>Main Info</h3>
       <div class="form__control">
         <label for="title">Title</label>
         <!--Use the name `title` for the form control.-->
-        <input type="text" id="title" placeholder="Input text" formControlName="title" required/>
+        <input type="text" id="title" placeholder="Input text" formControlName="title" required pattern=".{2,}" />
         <span id="titleErrorMessage" class="text-danger" *ngIf="!courseForm.get('title')?.valid">Title is required.</span>
       </div>
       <div class="form__control">
         <label for="description">Description</label>
         <!--Use the name `description` for the form control.-->
         <textarea id="description" name="description" placeholder="Input text" rows="4" cols="5"
-          formControlName="description" required>
+          formControlName="description" required pattern=".{2,}">
         </textarea>
         <span id="descriptionErrorMessage" class="text-danger" *ngIf="!courseForm.get('description')?.valid">Description is required.</span>
       </div>
@@ -23,7 +23,7 @@
       <div class="form__control">
         <div class="course__flex">
           <!--Use the name `author` for the form control.-->
-          <input type="text" id="author" placeholder="Input Author Name" formControlName="author" required pattern="[a-zA-Z0-9]+"/>
+          <input type="text" id="author" placeholder="Input Author Name" formControlName="author" pattern="[a-zA-Z0-9]+"/>
           <button type="button" id="createAuthor" (click)="onAddAuthor()" [disabled]="!courseForm.get('author')?.valid">Create Author</button>
         </div>
         <span id="authorErrorMessage" *ngIf="!courseForm.get('author')?.valid">New author should contain only latin letters and numbers.</span>

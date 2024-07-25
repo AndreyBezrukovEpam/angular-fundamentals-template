@@ -5,19 +5,19 @@
       <div class="form__control">
         <label for="name">Name</label>
         <!--Use the name `name` for the form control.-->
-        <input type="text" id="name" placeholder="Input text" formControlName="name"/>
+        <input type="text" id="name" placeholder="Input text" formControlName="name" required pattern=".{6,}" />
         <span id="nameErrorMessage" class="text-danger" *ngIf="!registrationForm.get('name')?.valid">Name is required.</span>
       </div>
       <div class="form__control">
         <!--Use the name `email` for the form control.-->
         <label for="email">Email</label>
-        <input type="text" id="email" placeholder="Input text" formControlName="email"/>
+        <input type="text" id="email" placeholder="Input text" formControlName="email" emailValidator/>
         <span id="emailErrorMessage" class="text-danger" *ngIf="!registrationForm.get('email')?.valid">Email is required.</span>
       </div>
       <div class="form__control">
         <!--Use the name `password` for the form control.-->
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Input text" formControlName="password"/>
+        <input type="password" id="password" placeholder="Input text" formControlName="password" required/>
         <span id="passwordErrorMessage" class="text-danger" *ngIf="!registrationForm.get('password')?.valid">Password is required.</span>
       </div>
     </div>

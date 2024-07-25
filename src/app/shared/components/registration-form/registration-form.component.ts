@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { EmailValidatorDirective } from '@app/shared/directives/email.directive';
 
 @Component({
   selector: 'app-registration-form',
@@ -15,7 +16,7 @@ export class RegistrationFormComponent implements OnInit
   {
     this.registrationForm = new FormGroup({
       'name': new FormControl(null, Validators.required),
-      'email': new FormControl(null, [Validators.required, Validators.email]),
+      'email': new FormControl(null, [Validators.required]),
       'password': new FormControl(null, Validators.required),
     });
   }
