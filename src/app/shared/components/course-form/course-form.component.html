@@ -1,14 +1,14 @@
 <!-- Replace ::text:: with your code -->
 <h2>Create / Edit Course</h2>
 <form>
-  <div class="app-plate">
+  <div class="app-plate"  [formGroup]="courseForm">
     <div class="course">
       <h3>Main Info</h3>
       <div class="form__control">
         <label for="title">Title</label>
         <!--Use the name `title` for the form control.-->
-        <input type="text" id="title" placeholder="Input text"/>
-        <span id="titleErrorMessage" class="text-danger">Title is required.</span>
+        <input type="text" id="title" placeholder="Input text" formControlName="title"/>
+        <span id="titleErrorMessage" class="text-danger" *ngIf="!courseForm.get('title')?.valid">Title is required.</span>
       </div>
       <div class="form__control">
         <label for="description">Description</label>
@@ -41,12 +41,12 @@
       <div class="form__control">
         <div class="course__flex">
           <!--Use the name `duration` for the form array.-->
-          <input type="number" id="duration" placeholder="Input duration"/>
+          <input type="number" id="duration" placeholder="Input duration" formControlName="duration"/>
           <div class="course__duration">
-            ::Duration::
+            {{ courseForm.get('duration') | duration }}
           </div>
         </div>
-        <span id="durationErrorMessage" class="text-danger">Duration is required.</span>
+        <span id="durationErrorMessage" class="text-danger" *ngIf="!courseForm.get('duration')?.valid">Duration is required.</span>
       </div>
       <div class="form__action">
         <app-button></app-button>

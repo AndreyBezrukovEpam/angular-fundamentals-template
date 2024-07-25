@@ -7,6 +7,9 @@ export class DurationPipe implements PipeTransform
 {
     transform(value: any, ...args: any[]): any 
     {
+        if(value != parseInt(value))
+            return "";
+
         const hours = Math.floor(value / 60);
         const minutes = value % 60;
 
