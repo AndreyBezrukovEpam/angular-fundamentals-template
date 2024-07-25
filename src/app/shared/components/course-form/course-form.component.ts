@@ -33,6 +33,10 @@ export class CourseFormComponent implements OnInit
     });
   }
 
+  get() {
+    return this.courseForm;
+  }
+
   onClick(){
     console.log(this.courseForm.get('duration'));
   }
