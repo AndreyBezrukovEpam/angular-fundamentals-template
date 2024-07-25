@@ -5,4 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './course-card.component.html',
   styleUrls: ['./course-card.component.scss']
 })
-export class CourseCardComponent {}
+export class CourseCardComponent {
+
+  duration: number = 3*60+45;
+}
